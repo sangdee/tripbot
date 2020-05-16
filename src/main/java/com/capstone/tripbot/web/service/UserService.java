@@ -31,8 +31,8 @@ public class UserService {
         return u != null && u.getPw().equals(user.getPw());
     }
 
-    public boolean checkDuplicate(User user) {
-        return !repository.findById(user.getEmail()).isPresent();
+    public boolean notDuplicate(User user) {
+        return read(user) == null;
     }
 
     public boolean isEmpty(User user) {

@@ -1,16 +1,12 @@
 package com.capstone.tripbot.web.controller;
 
 import com.capstone.tripbot.web.model.User;
-import com.capstone.tripbot.web.repository.UserRepository;
 import com.capstone.tripbot.web.service.EncryptService;
 import com.capstone.tripbot.web.service.SessionService;
 import com.capstone.tripbot.web.service.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpSession;
 
 /**
  * @author : Sangji Lee
@@ -40,7 +36,7 @@ public class UserController {
 
     @RequestMapping("/sign_up.do")
     public String signUp(User user) {
-        boolean isSuccess = userService.checkDuplicate(user);
+        boolean isSuccess = userService.notDuplicate(user);
         if (!userService.isEmpty(user) && isSuccess) {
             user = encryptService.encrypt(user);
             userService.save(user);
