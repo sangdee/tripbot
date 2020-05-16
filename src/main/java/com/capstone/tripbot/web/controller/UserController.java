@@ -40,7 +40,7 @@ public class UserController {
 
     @RequestMapping("/sign_up.do")
     public String signUp(User user) {
-        boolean isSuccess = userService.saveUser(user);
+        boolean isSuccess = userService.checkDuplicate(user);
         if (!userService.isEmpty(user) && isSuccess) {
             user = encryptService.encrypt(user);
             userService.save(user);

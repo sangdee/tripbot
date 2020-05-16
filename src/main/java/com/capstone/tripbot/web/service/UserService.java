@@ -27,14 +27,11 @@ public class UserService {
     }
 
     public boolean singIn(User user) {
-        User u = repository
-                .findById(user.getEmail())
-                .orElse(null);
-
+        User u = read(user);
         return u != null && u.getPw().equals(user.getPw());
     }
 
-    public boolean saveUser(User user) {
+    public boolean checkDuplicate(User user) {
         return !repository.findById(user.getEmail()).isPresent();
     }
 
