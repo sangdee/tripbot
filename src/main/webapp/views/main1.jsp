@@ -1,11 +1,7 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
+
 <html lang="zxx">
 
 <head>
@@ -49,39 +45,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="header-top">
     <div class="container">
         <div class="row">
-            <div class="col-10 w3social-icons">
-                <ul>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li class="mx-2">
-                        <a href="#">
-                            <i class="fab fa-google-plus-g"></i>
-                        </a>
-                    </li>
-                    <li class="mr-2">
-                        <a href="#">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-dribbble"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+
             <div class="col login-head text-right">
-                <a class="sign" href="#" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fas fa-user"></i>
+                <a href="log-in.jsp">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">로그인</button>
+                </a>
+                <a href="register.jsp">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">회원가입</button>
                 </a>
             </div>
         </div>
     </div>
 </div>
 <!-- //header top -->
+
 <!-- banner -->
 <div class="banner-w3l">
     <div class="container">
@@ -93,8 +70,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="col-8 logo">
                         <h1>
-                            <a href="main1.jsp">
-                                <img src="images/logo.png" alt=""> TripBot</a>
+                            <a href="main1.jsp">TripBot</a>
                         </h1>
                     </div>
                 </div>
@@ -121,11 +97,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <!-- banner text -->
         <div class="banner-text text-center mx-auto">
-            <p>Welcome To
-                <span>Travel App</span>
+            <p>
+                <span>어서오세요!</span>
             </p>
-            <h3>save money by comparing prices
-                <span>today</span>
+            <h3>당신의 여행계획을 도와줄
+                <span>TripBot</span>
             </h3>
         </div>
         <!-- //banner text -->
@@ -224,7 +200,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                     </div>
                     <p class="text-center dont-do">회원이 아니신가요?
-                        <a href="#" data-toggle="modal" data-target="#exampleModal2">
+                        <a href="register.jsp" data-toggle="modal" data-target="#exampleModal2">
                             회원가입</a>
                     </p>
                 </form>
@@ -274,8 +250,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">뒤로가기</btton>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">뒤로 가기</button>
             </div>
+
         </div>
     </div>
 </div>
