@@ -1,8 +1,9 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
 <head>
-    <title>Travel App Mobile App Category Bootstrap Responsive Web Template | About Us :: W3layouts</title>
+    <title>Travel App TripBot</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />

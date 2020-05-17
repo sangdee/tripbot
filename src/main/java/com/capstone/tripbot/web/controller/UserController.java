@@ -31,7 +31,7 @@ public class UserController {
             user = userService.read(user);
             sessionService.store("user", user);
             return "redirect:/";
-        } else return "redirect:/views/user/sign_in.jsp";
+        } else return "redirect:/views/sign_in.jsp";
     }
 
     @RequestMapping("/sign_up.do")
@@ -41,9 +41,9 @@ public class UserController {
             user = encryptService.encrypt(user);
             userService.save(user);
         } else {
-            return "redirect:/views/user/sign_up.jsp";
+            return "redirect:/views/sign_up.jsp";
         }
-        return "redirect:/views/user/sign_in.jsp";
+        return "redirect:/views/sign_in.jsp";
     }
 
     @RequestMapping("/logout")
@@ -57,13 +57,8 @@ public class UserController {
         userService.read(updateUser);
         user.update(updateUser);
         userService.save(user);
-        sessionService.store("user",user);
+        sessionService.store("user", user);
         return "redirect:/";
-    }
-
-    @RequestMapping("/update")
-    public String updateForm() {
-        return "redirect:/views/user/user_modi.jsp";
     }
 
 }
