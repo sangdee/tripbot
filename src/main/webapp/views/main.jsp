@@ -65,7 +65,7 @@
                 }else{
                 %>
                 <a>
-                    <%=user.getName()%>님 안녕하세요.
+                    <%=user.getName()%>님 안녕하세요
                 </a>
                 <a>
                     <a href="/logout">
