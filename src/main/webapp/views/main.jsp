@@ -123,7 +123,7 @@
                         <a href="chatBot.jsp">챗봇</a>
                     </li>
                     <li>
-                        <a href="pay.html">여행일지</a>
+                        <a href="add_note.jsp">여행일지</a>
                     </li>
                 </ul>
             </nav>
@@ -147,19 +147,13 @@
 <div class="agile-bottom space-w3ls">
     <div class="container">
         <div class="text-center mx-auto">
-            <input type="search">
-            <button type="submit">
-                <i class="fa fa-search"></i>
-            </button>
+
             <form>
                 <fieldset></fieldset>
             </form>
         </div>
         <div class="text-center mx-auto">
-            <a href="book.html" class="button2-w3l">지역
-                <i class="far fa-hand-point-right"></i>
-            </a>
-            <a href="book.html" class="button2-w3l">테마
+            <a href="theme_page.jsp" class="button2-w3l">테마
                 <i class="far fa-hand-point-right"></i>
             </a>
         </div>

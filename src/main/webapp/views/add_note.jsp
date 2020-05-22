@@ -59,7 +59,7 @@
                                     </div>
                                     <h4 class="mission agileits w3layouts">작성</h4>
                                     <div class="description agileits w3layouts">
-                                        <a href="about.html">+일지</a>
+                                        <a href="select_date.jsp">+일지</a>
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                                     </div>
                                     <h4 class="mission agileits w3layouts">작성</h4>
                                     <div class="description agileits w3layouts">
-                                        <a href="about.html">+일지</a>
+                                        <a href="select_date.jsp">+일지</a>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                                     </div>
                                     <h4 class="mission agileits w3layouts">작성</h4>
                                     <div class="description agileits w3layouts">
-                                        <a href="about.html">+일지</a>
+                                        <a href="select_date.jsp">+일지</a>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                                     </div>
                                     <h4 class="mission agileits w3layouts">작성</h4>
                                     <div class="description agileits w3layouts">
-                                        <a href="about.html">+일지</a>
+                                        <a href="select_date.jsp">+일지</a>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                                     </div>
                                     <h4 class="mission agileits w3layouts">작성</h4>
                                     <div class="description agileits w3layouts">
-                                        <a href="about.html">+일지</a>
+                                        <a href="select_date.jsp">+일지</a>
                                     </div>
                                 </div>
                             </div>
@@ -114,27 +114,19 @@
                                     </div>
                                     <h4 class="mission agileits w3layouts">작성</h4>
                                     <div class="description agileits w3layouts">
-                                        <a href="about.html">일지 추가</a>
+                                        <a href="select_date.jsp">일지 추가</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-
-
-
-
                         <div class="search">
-                            <a type="submit" class="submit" href="main1.jsp">메인화면으로 이동</a>
+                            <a type="submit" class="submit" href="main.jsp">메인화면으로 이동</a>
 
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="bann-info2 text-center">
-            내가 작성한 글, 좋아요 누른 글 표시할 공간
-        </div>
-
     </div>
 </div>
