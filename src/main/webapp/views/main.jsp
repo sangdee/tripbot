@@ -64,7 +64,7 @@
                 <%
                 }else{
                 %>
-                <a>
+                <a style="font-size: small">
                     <%=user.getName()%>님 안녕하세요
                 </a>
                 <a>
