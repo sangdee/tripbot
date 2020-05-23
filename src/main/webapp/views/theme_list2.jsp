@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -63,18 +64,17 @@
 
 <!-- theme-header -->
 <div id="skipToContent">
-    <a href="main.jsp">메인으로 가기</a>
-    <a href="ling_in.jsp">| 로그아웃</a>
+    <a href="/">메인으로 가기</a>
+    <a href="/logout">| 로그아웃</a>
 </div>
 <!-- // theme-header -->
 
 <hr class="one">
 
-<div class="container">
     <!-- 태그 리스트 -->
 
     <div class="theme-list">
-        <strong>총<span id="totalCnt"></span>건</strong>
+        <strong>총<span id="totalCnt">${count}</span>건</strong>
         <div class="box_leftType1">
             <div class="total_check">
                 <div class="btn_txt">
@@ -83,33 +83,36 @@
                     <button type="button" class="theme-btn">인기순</button>
                 </div>
             </div>
-
+        </div>
+<c:forEach var="row" items="${list}">
             <ul class="list_thumType flnon">
                 <li class="bdr_nor">
                     <div class="photo">
-                        <a href="main.jsp">
-                            <img src="https://support.visitkorea.or.kr/img/call?cmd=VIEW&id=59433b7a-61e6-4d64-8679-32660b281e50&thumb" alt="카페힐로 서창점">
+                        <a href="/">
+                            <img src="${row.imageUrl}" alt="${row.imageUrl}">
                         </a>
                     </div>
                     <div class="area_txt">
                         <div class="tit">
-                            <a href="main.jsp">카페힐로 서창점</a>
+                            <a href="/">${row.title}</a>
                         </div>
                         <p>인천 남동구</p>
                         <p>032-469-2583</p>
                         <p class="tag">
-                            <span>#음식</span>
+                            <span>${row.theme}</span>
                         </p>
                     </div>
                     <button type="button" title="열기" class="btn_view">더보기</button>
                 </li>
             </ul>
-
-        </div>
+</c:forEach>
     </div>
     <!-- //태그 리스트 -->
 
+
     <!-- 태그 버튼들 -->
+
+<div class="container">
     <div class="theme-btn">
         <div class="area_tagList">
 
