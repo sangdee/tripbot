@@ -97,13 +97,14 @@
                                         <input type="hidden" name="theme" value="#힐링">
                                         <button class="btn btn-secondary" type="submit">#힐링</button>
                                     </form>
-
+                                    <br>
                                 </li>
                                 <li>
                                     <form action="/theme_choice.do">
                                         <input type="hidden" name="theme" value="#맛집">
                                         <button class="btn btn-secondary" type="submit">#맛집</button>
                                     </form>
+                                    <br>
                                 </li>
                                 <li>
                                     <form action="/theme_choice.do">
@@ -120,13 +121,14 @@
                                         <input type="hidden" name="theme" value="#문화유산">
                                         <button class="btn btn-secondary" type="submit">#문화유산</button>
                                     </form>
+                                    <br>
                                 </li>
                                 <li>
                                     <form action="/theme_choice.do">
                                         <input type="hidden" name="theme" value="#숨은명소">
                                         <button class="btn btn-secondary" type="submit">#숨은명소</button>
                                     </form>
-
+                                    <br>
                                 </li>
                                 <li>
                                     <form action="/theme_choice.do">
