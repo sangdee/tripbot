@@ -23,9 +23,13 @@ public class ThemeService {
         return (List<Theme>) repository.findAll();
     }
 
-    public long count() {return repository.count();}
+    public long count() {
+        return repository.count();
+    }
 
-
+    public List<Theme> choice(String input){
+        return  repository.findByTheme(input);
+    }
     public Theme idRead(long input) {
         return repository.findById(input).orElse(null);
 

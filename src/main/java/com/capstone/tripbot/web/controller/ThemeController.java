@@ -33,12 +33,19 @@ public class ThemeController {
     }
 
     @RequestMapping("/theme_detail.do")
-    public String detail(Theme themeBoard, long no, Model model) {
-        themeBoard = themeService.idRead(no);
+    public String detail(Theme theme, long no, Model model) {
+        theme = themeService.idRead(no);
 
-        model.addAttribute("themeData",themeBoard);
-        System.out.println(
-                model.addAttribute("themeData",themeBoard));
+        model.addAttribute("themeData",theme);
         return "views/theme_detail";
+    }
+    @RequestMapping("/theme_choice.do")
+    public String choice(String theme,Model model){
+        List<Theme> list = themeService.choice(theme);
+        System.out.println(list);
+        long count = themeService.count();
+        model.addAttribute("list",list);
+
+        return "views/theme_list" ;
     }
 }
