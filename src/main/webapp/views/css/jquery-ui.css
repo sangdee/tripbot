@@ -1056,16 +1056,19 @@ body .ui-tooltip {
 .ui-widget-header .ui-state-active {
 	border: 1px solid #aaaaaa/*{borderColorActive}*/
 	;
-	background: #ffffff/*{bgColorActive}*/
-	url(ui-bg_glass_65_ffffff_1x400.png)/*{bgImgUrlActive}*/
-	50%/*{bgActiveXPos}*/
-	50%/*{bgActiveYPos}*/
-	repeat-x/*{bgActiveRepeat}*/
-	;
+	/*{bgActiveRepeat}*/
+	background-repeat: repeat-x;
+	background-position: 50% 50%;
+	background-color: #ffffff;;
 	font-weight: normal/*{fwDefault}*/
 	;
 	color: #212121/*{fcActive}*/
 	;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
 }
 
 .ui-state-active a,
@@ -1100,7 +1103,7 @@ body .ui-tooltip {
 	border: 1px solid #cd0a0a/*{borderColorError}*/
 	;
 	background: #fef1ec/*{bgColorError}*/
-	url(ui-bg_glass_95_fef1ec_1x400.png)/*{bgImgUrlError}*/
+
 	50%/*{bgErrorXPos}*/
 	50%/*{bgErrorYPos}*/
 	repeat-x/*{bgErrorRepeat}*/
@@ -1872,7 +1875,7 @@ body .ui-tooltip {
 	padding: 8px/*{thicknessShadow}*/
 	;
 	background: #aaaaaa/*{bgColorShadow}*/
-	url(ui-bg_flat_0_aaaaaa_40x100.png)/*{bgImgUrlShadow}*/
+
 	50%/*{bgShadowXPos}*/
 	50%/*{bgShadowYPos}*/
 	repeat-x/*{bgShadowRepeat}*/
@@ -1945,19 +1948,24 @@ body .ui-tooltip {
 	.ui-datepicker {
 		width: 40%;
 	}
+
 	@media only screen and (max-width: 640px) {
 		.ui-datepicker {
 			width: 45.7%;
 		}
+
 		.ui-datepicker .ui-datepicker-header {
 			padding: 5px 0;
 		}
+
 		.ui-datepicker-title span {
 			font-size: 0.85em;
 		}
+
 		.ui-datepicker th {
 			padding: 2px;
 		}
+
 		.ui-datepicker td span,
 		.ui-datepicker td a {
 			display: block;
@@ -1969,21 +1977,26 @@ body .ui-tooltip {
 		.ui-datepicker {
 			width: 50.3%;
 		}
+
 		.ui-datepicker .ui-datepicker-header {
 			padding: 5px 0;
 		}
+
 		.ui-datepicker-title span {
 			font-size: 0.85em;
 		}
+
 		.ui-datepicker th {
 			padding: 4px;
 		}
+
 		.ui-datepicker td span,
 		.ui-datepicker td a {
 			display: block;
 			padding: .4em;
 			font-size: 1em;
 		}
+
 		.ui-datepicker table {
 			margin: 0 0 0.4em;
 		}
@@ -1992,6 +2005,7 @@ body .ui-tooltip {
 		.ui-datepicker {
 			width: 66%;
 		}
+
 		.ui-datepicker .ui-datepicker-prev,
 		.ui-datepicker .ui-datepicker-next {
 			top: 7px;
@@ -2002,15 +2016,15 @@ body .ui-tooltip {
 			width: 53.5%;
 			left: 27% !important;
 		}
+
 		.ui-datepicker td span,
 		.ui-datepicker td a {
 			font-size: 10px;
 		}
+
 		.ui-datepicker th span {
 			font-size: 0.8em;
 		}
 	}
-	.text-box-light {
-		background: url(../images/calender.png) #394264 no-repeat 95% 50%;
-		cursor: pointer;
-	}
+
+}

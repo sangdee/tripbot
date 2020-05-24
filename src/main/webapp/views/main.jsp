@@ -153,7 +153,7 @@
             </form>
         </div>
         <div class="text-center mx-auto">
-            <a href="theme_page.jsp" class="button2-w3l">테마
+            <a href="/theme_list.do" class="button2-w3l">테마
                 <i class="far fa-hand-point-right"></i>
             </a>
         </div>

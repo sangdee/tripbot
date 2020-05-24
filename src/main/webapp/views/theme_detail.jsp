@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,42 +11,30 @@
   <title>TripBot</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="/views/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="views/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="/views/css/shop-item.css" rel="stylesheet">
+  <link href="views/css/shop-item.css" rel="stylesheet">
 
 </head>
 
 <body>
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="/">TripBot</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-              aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-
-          <li class="nav-item">
-            <a class="nav-link disabled">${user.name}님 안녕하세요</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">로그아웃</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
 
   <!-- Page Content -->
   <div class="container">
 
     <div class="row">
+
+      <div class="col-lg-3">
+        <h1 class="my-4">#테마여행</h1>
+        <div class="list-group">
+          <a href="#" class="list-group-item active">Category 1</a>
+          <a href="#" class="list-group-item">Category 2</a>
+          <a href="#" class="list-group-item">Category 3</a>
+        </div>
+      </div>
+      <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
 
@@ -63,6 +50,25 @@
         </div>
         <!-- /.card -->
 
+        <div class="card card-outline-secondary my-4">
+          <div class="card-header">
+            Product Reviews
+          </div>
+          <div class="card-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+            <hr>
+            <a href="#" class="btn btn-success">Leave a Review</a>
+          </div>
+        </div>
+        <!-- /.card -->
+
       </div>
       <!-- /.col-lg-9 -->
 
@@ -74,14 +80,14 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; TripBot</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
     </div>
     <!-- /.container -->
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="/views/vendor/jquery/jquery.min.js"></script>
-  <script src="/views/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="views/vendor/jquery/jquery.min.js"></script>
+  <script src="views/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
