@@ -33,12 +33,12 @@ public class ThemeController {
     }
 
     @RequestMapping("/theme_detail.do")
-    public String detail(Theme themeBoard, long no, Model model) {
-        themeBoard = themeService.idRead(no);
+    public String detail(Theme theme, long no, Model model) {
+        theme = themeService.idRead(no);
 
-        model.addAttribute("themeData",themeBoard);
+        model.addAttribute("themeData",theme);
         System.out.println(
-                model.addAttribute("themeData",themeBoard));
+                model.addAttribute("themeData",theme));
         return "views/theme_detail";
     }
 }
