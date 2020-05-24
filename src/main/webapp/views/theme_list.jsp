@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -61,7 +62,7 @@
                 <li class="page-item">
                     <a class="page-link" href="#">&larr; Older</a>
                 </li>
-                <li class="page-item disabled">
+                <li class="page-item">
                     <a class="page-link" href="#">Newer &rarr;</a>
                 </li>
             </ul>
@@ -92,26 +93,46 @@
                         <div class="col-lg-6">
                             <ul class="list-unstyled mb-0">
                                 <li>
-                                    <a href="#">#힐링</a>
+                                    <form action="/theme_choice.do">
+                                        <input type="hidden" name="theme" value="#힐링">
+                                        <button class="btn btn-secondary" type="submit">#힐링</button>
+                                    </form>
+
                                 </li>
                                 <li>
-                                    <a href="#">#먹거리</a>
+                                    <form action="/theme_choice.do">
+                                        <input type="hidden" name="theme" value="#맛집">
+                                        <button class="btn btn-secondary" type="submit">#맛집</button>
+                                    </form>
                                 </li>
                                 <li>
-                                    <a href="#">#배낭</a>
+                                    <form action="/theme_choice.do">
+                                        <input type="hidden" name="theme" value="#액티비티">
+                                        <button class="btn btn-secondary" type="submit">#액티비티</button>
+                                    </form>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-lg-6">
                             <ul class="list-unstyled mb-0">
                                 <li>
-                                    <a href="#">#액티비티</a>
+                                    <form action="/theme_choice.do">
+                                        <input type="hidden" name="theme" value="#문화유산">
+                                        <button class="btn btn-secondary" type="submit">#문화유산</button>
+                                    </form>
                                 </li>
                                 <li>
-                                    <a href="#">#쇼핑</a>
+                                    <form action="/theme_choice.do">
+                                        <input type="hidden" name="theme" value="#숨은명소">
+                                        <button class="btn btn-secondary" type="submit">#숨은명소</button>
+                                    </form>
+
                                 </li>
                                 <li>
-                                    <a href="#">#한옥마을</a>
+                                    <form action="/theme_choice.do">
+                                        <input type="hidden" name="theme" value="#가족">
+                                        <button class="btn btn-secondary" type="submit">#가족</button>
+                                    </form>
                                 </li>
                             </ul>
                         </div>
