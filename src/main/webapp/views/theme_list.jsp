@@ -30,9 +30,12 @@
 
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-            <h1 class="my-4">#테마여행
+            <h1 class="my-4"><a href="/theme_list.do">#테마여행</a>
             </h1>
             <hr>
+            <strong>총 ${count}건</strong>
+            <hr>
+            <br>
             <!-- Blog Post -->
             <c:forEach var="theme" items="${list}">
                 <div class="card mb-4">
@@ -59,12 +62,16 @@
 
             <!-- Pagination -->
             <ul class="pagination justify-content-center mb-4">
-                <li class="page-item">
-                    <a class="page-link" href="#">&larr; Older</a>
-                </li>
-                <li class="page-item">
-                    <a class="page-link" href="#">Newer &rarr;</a>
-                </li>
+                <c:if test="${!page.first}">
+                    <li class="page-item">
+                        <a class="page-link" href="?page=${page.number-1}">&larr; Older</a>
+                    </li>
+                </c:if>
+                <c:if test="${!page.last}">
+                    <li class="page-item">
+                        <a class="page-link" href="?page=${page.number+1}">Newer &rarr;</a>
+                    </li>
+                </c:if>
             </ul>
 
         </div>
@@ -77,10 +84,12 @@
                 <h5 class="card-header">검색</h5>
                 <div class="card-body">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">이동</button>
+                        <form action="/search.do">
+                            <input type="text" class="form-control" name="keyword" placeholder="Search for..."><span
+                                class="input-group-btn">
+                <button class="btn btn-secondary" type="submit">이동</button>
               </span>
+                        </form>
                     </div>
                 </div>
             </div>
