@@ -1,6 +1,7 @@
 package com.capstone.tripbot.web.controller;
 
 import com.capstone.tripbot.web.model.Theme;
+import com.capstone.tripbot.web.service.SessionService;
 import com.capstone.tripbot.web.service.ThemeService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -11,8 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.jws.WebParam;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,47 +22,41 @@ import java.util.List;
 @Controller
 @AllArgsConstructor
 public class ThemeController {
+    private SessionService sessionService;
     private ThemeService themeService;
 
     @RequestMapping("/theme_list.do")
     public String list(Model model, @PageableDefault(sort = {"no"}, direction = Sort.Direction.DESC, size = 3) Pageable pageable) {
-//        List<Theme> list = themeService.allRead();
-//        Collections.reverse(list);
-        List<Theme> list = themeService.findAll(pageable);
-        Page<Theme> page = themeService.findPage(pageable);
-        long count = themeService.count();
-
-        model.addAttribute("list", list);
-        model.addAttribute("page", page);
-//        model.addAttribute("list", list);
-        model.addAttribute("count", count);
-
+        model.addAttribute("list", themeService.findPage(pageable));
+        model.addAttribute("count", themeService.count());
+        sessionService.store("uri","");
 
         return "views/theme_list";
     }
 
     @RequestMapping("/theme_detail.do")
     public String detail(Theme theme, long no, Model model) {
-        theme = themeService.idRead(no);
-        model.addAttribute("themeData", theme);
+        model.addAttribute("themeData", themeService.idRead(no));
+
         return "views/theme_detail";
     }
 
     @RequestMapping("/theme_choice.do")
-    public String choice(String theme, Model model) {
-        List<Theme> list = themeService.choice(theme);
-        long count = themeService.count();
-        model.addAttribute("list", list);
-        model.addAttribute("count", count);
+    public String choice(String theme, Model model, @PageableDefault(sort = {"no"}, direction = Sort.Direction.DESC, size = 3) Pageable pageable) {
+        model.addAttribute("list", themeService.choicePage(theme, pageable));
+        model.addAttribute("count", themeService.countTheme(theme));
+        sessionService.store("uri", "theme=" + theme + "&");
+
         return "views/theme_list";
     }
 
     @RequestMapping("/search.do")
-    public String search(String keyword, Model model) {
-        List<Theme> list = themeService.search(keyword);
-        long count = themeService.count();
-        model.addAttribute("list", list);
-        model.addAttribute("count", count);
+    public String search(String keyword, Model model, @PageableDefault(sort = {"no"}, direction = Sort.Direction.DESC, size = 3) Pageable pageable) {
+
+        model.addAttribute("list", themeService.search(keyword, pageable));
+        model.addAttribute("count", themeService.countSearch(keyword));
+        sessionService.store("uri", "keyword=" + keyword + "&");
+
         return "views/theme_list";
     }
 }

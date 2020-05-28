@@ -30,6 +30,7 @@ public class UserController {
         if (userService.singIn(user)) {
             user = userService.read(user);
             sessionService.store("user", user);
+
             return "redirect:/";
         } else return "redirect:/views/sign_in.jsp";
     }
@@ -49,6 +50,7 @@ public class UserController {
     @RequestMapping("/logout")
     public String logout() {
         sessionService.remove("user");
+
         return "redirect:/";
     }
 
@@ -58,6 +60,7 @@ public class UserController {
         user.update(updateUser);
         userService.save(user);
         sessionService.store("user", user);
+
         return "redirect:/";
     }
 

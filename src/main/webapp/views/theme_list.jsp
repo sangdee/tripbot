@@ -37,7 +37,7 @@
             <hr>
             <br>
             <!-- Blog Post -->
-            <c:forEach var="theme" items="${list}">
+            <c:forEach var="theme" items="${list.content}">
                 <div class="card mb-4">
                     <img class="card-img-top" src="${theme.imageUrl}" alt="Card image cap">
                     <div class="card-body">
@@ -51,7 +51,7 @@
                     <div class="card-footer text-muted">
                         <ul class="pagination justify-content-center mb-4">
                             <li class="page-item disabled">
-                                <a class="page-link" href="#">${theme.theme}</a>
+                                <a class="page-link" href="#">#${theme.theme}</a>
                             </li>
                         </ul>
                     </div>
@@ -62,14 +62,14 @@
 
             <!-- Pagination -->
             <ul class="pagination justify-content-center mb-4">
-                <c:if test="${!page.first}">
+                <c:if test="${!list.first}">
                     <li class="page-item">
-                        <a class="page-link" href="?page=${page.number-1}">&larr; Older</a>
+                        <a class="page-link" href="?${uri}page=${list.number-1}">&larr; Older</a>
                     </li>
                 </c:if>
-                <c:if test="${!page.last}">
+                <c:if test="${!list.last}">
                     <li class="page-item">
-                        <a class="page-link" href="?page=${page.number+1}">Newer &rarr;</a>
+                        <a class="page-link" href="?${uri}page=${list.number+1}">Newer &rarr;</a>
                     </li>
                 </c:if>
             </ul>
@@ -103,23 +103,24 @@
                             <ul class="list-unstyled mb-0">
                                 <li>
                                     <form action="/theme_choice.do">
-                                        <input type="hidden" name="theme" value="#힐링">
+                                        <input type="hidden" name="theme" value="힐링">
                                         <button class="btn btn-secondary" type="submit">#힐링</button>
                                     </form>
                                     <br>
                                 </li>
                                 <li>
                                     <form action="/theme_choice.do">
-                                        <input type="hidden" name="theme" value="#맛집">
+                                        <input type="hidden" name="theme" value="맛집">
                                         <button class="btn btn-secondary" type="submit">#맛집</button>
                                     </form>
                                     <br>
                                 </li>
                                 <li>
                                     <form action="/theme_choice.do">
-                                        <input type="hidden" name="theme" value="#액티비티">
+                                        <input type="hidden" name="theme" value="액티비티">
                                         <button class="btn btn-secondary" type="submit">#액티비티</button>
                                     </form>
+                                    <br>
                                 </li>
                             </ul>
                         </div>
@@ -127,21 +128,21 @@
                             <ul class="list-unstyled mb-0">
                                 <li>
                                     <form action="/theme_choice.do">
-                                        <input type="hidden" name="theme" value="#문화유산">
+                                        <input type="hidden" name="theme" value="문화유산">
                                         <button class="btn btn-secondary" type="submit">#문화유산</button>
                                     </form>
                                     <br>
                                 </li>
                                 <li>
                                     <form action="/theme_choice.do">
-                                        <input type="hidden" name="theme" value="#숨은명소">
+                                        <input type="hidden" name="theme" value="숨은명소">
                                         <button class="btn btn-secondary" type="submit">#숨은명소</button>
                                     </form>
                                     <br>
                                 </li>
                                 <li>
                                     <form action="/theme_choice.do">
-                                        <input type="hidden" name="theme" value="#가족">
+                                        <input type="hidden" name="theme" value="가족">
                                         <button class="btn btn-secondary" type="submit">#가족</button>
                                     </form>
                                 </li>

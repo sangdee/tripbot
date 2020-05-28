@@ -24,34 +24,28 @@ public class ThemeService {
 
     private ThemeRepository repository;
 
-
-    public List<Theme> allRead() {
-        return (List<Theme>) repository.findAll();
-    }
-
     public long count() {
         return repository.count();
     }
-
-    public List<Theme> choice(String input) {
-        return repository.findByTheme(input);
+    public long countTheme(String theme){
+        return repository.countByTheme(theme);
+    }
+    public long countSearch(String keyword){
+        return repository.countByTitleContaining(keyword);
     }
 
     public Theme idRead(long input) {
         return repository.findById(input).orElse(null);
     }
 
-    public List<Theme> search(String input) {
-        return repository.findByTitleContaining(input);
-    }
-
-    public List<Theme> findAll(Pageable pageable) {
-        Page<Theme> page = repository.findAll(pageable);
-        List<Theme> entities = page.getContent();
-        return entities;
-    }
-
     public Page<Theme> findPage(Pageable pageable) {
         return repository.findAll(pageable);
     }
+    public Page<Theme> choicePage(String theme, Pageable pageable) {
+        return repository.findByTheme(theme, pageable);
+    }
+    public Page<Theme> search(String input, Pageable pageable) {
+        return repository.findByTitleContaining(input, pageable);
+    }
+
 }
