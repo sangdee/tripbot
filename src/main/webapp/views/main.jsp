@@ -7,6 +7,7 @@
 <%!
     User user;
 %>
+
 <head>
     <title>Travel App TripBot</title>
     <!-- Meta tag Keywords -->
@@ -62,7 +63,7 @@
                     <button type="button" class="btn btn-secondary">회원가입</button>
                 </a>
                 <%
-                }else{
+                } else {
                 %>
                 <a style="font-size: small">
                     <%=user.getName()%>님 안녕하세요
@@ -111,7 +112,7 @@
                         <a href="sign_in.jsp">마이페이지</a>
                     </li>
                     <%
-                        }else{
+                    } else {
                     %>
                     <li>
                         <a href="my_page.jsp">마이페이지</a>
@@ -119,9 +120,25 @@
                     <%
                         }
                     %>
+                    <%
+                        user = (User) session.getAttribute("user");
+                        if (user == null || user.equals("")) {
+                    %>
                     <li>
-                        <a href="chatBot.jsp">챗봇</a>
+                        <a href="/">챗봇</a>
                     </li>
+                    <%
+                        }else {
+                    %>
+                    <%
+                        session.setAttribute("email", user.getEmail());
+                    %>
+                    <li>
+                        <a href="/chat_list.do">챗봇</a>
+                    </li>
+                    <%
+                        }
+                    %>
                     <li>
                         <a href="add_note.jsp">여행일지</a>
                     </li>

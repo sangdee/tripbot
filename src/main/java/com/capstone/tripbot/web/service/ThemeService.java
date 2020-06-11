@@ -4,13 +4,8 @@ import com.capstone.tripbot.web.model.Theme;
 import com.capstone.tripbot.web.repository.ThemeRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @author : Sangji Lee
@@ -23,7 +18,6 @@ import java.util.List;
 public class ThemeService {
 
     private ThemeRepository repository;
-
     public long count() {
         return repository.count();
     }

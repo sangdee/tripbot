@@ -1,8 +1,14 @@
+<%@ page import="java.sql.Timestamp" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<%
+    Timestamp register = new Timestamp(System.currentTimeMillis());
+%>
 
 <!DOCTYPE html>
 <html lang="zxx">
@@ -32,19 +38,21 @@
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
+
+
     </script>
     <!--// Meta tag Keywords -->
 
     <!-- Custom-Files -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="views/css/bootstrap.css">
     <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css">
+    <link rel="stylesheet" type="text/css" href="views/css/jquery.mmenu.all.css">
     <!-- menu -->
-    <link rel="stylesheet" href="css/main.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="views/css/main.css" type="text/css" media="all"/>
     <!-- Style-CSS -->
-    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link href="views/css/fontawesome-all.css" rel="stylesheet">
     <!-- Font-Awesome-Icons-CSS -->
-    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="views/css/chat.css">
     <!-- //Custom-Files -->
 
     <!-- Web-Fonts -->
@@ -61,11 +69,12 @@
 </div>
 <!-- //banner -->
 <div class="col-md-8 col-xl-6 text-center mx-auto chat">
+
     <div class="card">
         <div class="card-header msg_head">
             <div class="d-flex bd-highlight">
                 <div class="img_cont">
-                    <img src="images/bot.jpg"
+                    <img src="views/images/bot.jpg"
                          class="rounded-circle user_img">
                     <span class="online_icon"></span>
                 </div>
@@ -77,52 +86,58 @@
         <div class="card-body msg_card_body">
             <div class="d-flex justify-content-start mb-4">
                 <div class="img_cont_msg">
-                    <img src="images/bot.jpg"
+                    <img src="views/images/bot.jpg"
                          class="rounded-circle user_img_msg">
                 </div>
                 <div class="msg_cotainer">
                     안녕하세요? 무엇을 도와드릴까요?
-                    <span class="msg_time">8:40 AM, Today</span>
+                    <span class="msg_time"></span>
                 </div>
             </div>
-            <div class="d-flex justify-content-end mb-4">
-                <div class="msg_cotainer_send">
-                    오늘 전주 날씨 어때?
-                    <span class="msg_time_send">8:55 AM, Today</span>
+            <c:forEach var="chat" items="${chat}">
+                <div class="d-flex justify-content-end mb-4">
+                    <div class="msg_cotainer_send">
+                            ${chat.chatContent}
+                        <span class="msg_time_send">${chat.chatDate}</span>
+                    </div>
                 </div>
-            </div>
-
+            </c:forEach>
         </div>
     </div>
     <div class="card-footer">
         <div class="input-group">
-            <div class="input-group-append">
-                                        <span class="input-group-text attach_btn"><i
-                                                class="fas fa-paperclip"></i></span>
-            </div>
-            <textarea name="" class="form-control type_msg"
-                      placeholder="Type your message..."></textarea>
-            <div class="input-group-append">
-                                        <span class="input-group-text send_btn"><i
-                                                class="fas fa-location-arrow"></i></span>
-            </div>
+            <form action="/chat_content.do">
+                <input type="text" name="chatContent" class="form-control type_msg"
+                       placeholder="Type your message..."/>
+                <input type="hidden" name="email" value=${user.email}>
+                <input type="hidden" name="chatDate" value= <%=String.valueOf(register.getTime())%>>
+                <c:choose>
+                    <c:when test="${empty user.email}">
+                        <input type="hidden" name="isUser" value=false>
+                    </c:when>
+                    <c:otherwise>
+                        <input type="hidden" name="isUser" value=true>
+                    </c:otherwise>
+                </c:choose>
+                <div class="input-group-append">
+                    <button type="submit" class="input-group-text send_btn">
+                        <i class="fas fa-location-arrow"></i></button>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>
-</div>
-</div>
 
 
-<!-- Js files -->
-<!-- JavaScript -->
-<script src="js/jquery-2.2.3.min.js"></script>
+<script src="views/js/jquery-2.2.3.min.js"></script>
 <!-- Default-JavaScript-File -->
-<script src="js/bootstrap.js"></script>
-<script src="js/chat.js"></script>
+<script src="views/js/bootstrap.js"></script>
+<script src="views/js/chat.js"></script>
 <!-- Necessary-JavaScript-File-For-Bootstrap -->
 
 <!-- menu -->
-<script src="js/jquery.mmenu.all.js"></script>
+<script src="views/js/jquery.mmenu.all.js"></script>
 <script>
     $(function () {
 
@@ -139,17 +154,17 @@
 <!-- //menu -->
 
 <!-- scrolling plugins -->
-<script src="js/jquery.nicescroll.min.js"></script>
-<script src="js/scripts.js"></script>
+<script src="views/js/jquery.nicescroll.min.js"></script>
+<script src="views/js/scripts.js"></script>
 <!-- //scrolling plugins -->
 
 <!-- smooth scrolling -->
-<script src="js/SmoothScroll.min.js"></script>
+<script src="views/js/SmoothScroll.min.js"></script>
 <!-- //smooth scrolling -->
 
 <!-- start-smoth-scrolling -->
-<script src="js/move-top.js"></script>
-<script src="js/easing.js"></script>
+<script src="views/js/move-top.js"></script>
+<script src="views/js/easing.js"></script>
 <script>
     jQuery(document).ready(function ($) {
         $(".scroll").click(function (event) {
@@ -165,14 +180,7 @@
 <!-- smooth scrolling-bottom-to-top -->
 <script>
     $(document).ready(function () {
-        /*
-            var defaults = {
-            containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
-            scrollSpeed: 1200,
-            easingType: 'linear'
-            };
-        */
+
         $().UItoTop({
             easingType: 'easeOutQuart'
         });

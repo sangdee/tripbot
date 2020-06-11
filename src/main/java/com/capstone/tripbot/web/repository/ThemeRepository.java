@@ -15,7 +15,6 @@ import java.util.List;
  */
 public interface ThemeRepository extends JpaRepository<Theme, Long> {
     Page<Theme> findByTheme(String s, Pageable pageable);
-
     Page<Theme> findByTitleContaining(String s, Pageable pageable);
     long countByTheme(String s);
     long countByTitleContaining(String s);

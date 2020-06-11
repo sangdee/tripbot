@@ -19,29 +19,22 @@ public class UserService {
 
     public User read(User input) {
         return repository.findById(input.getEmail()).orElse(null);
-
     }
-
     public void save(User user) {
         repository.save(user);
     }
-
     public boolean singIn(User user) {
         User u = read(user);
         return u != null && u.getPw().equals(user.getPw());
     }
-
     public boolean notDuplicate(User user) {
         return read(user) == null;
     }
-
     public boolean isEmpty(User user) {
         return empty(user.getEmail()) || empty(user.getName()) || empty(user.getPw());
     }
-
     private boolean empty(String s) {
         return s == null || s.replaceAll(" ", "").equals("");
     }
-
 
 }
