@@ -29,6 +29,7 @@ public class ChatController {
         chatService.save(chat);
         List<Chat> chatInfo = chatService.showChat(chat.getEmail());
         model.addAttribute("chat", chatInfo);
+        String chatContent = chat.getChatContent();
         return "views/chat_bot";
     }
 
