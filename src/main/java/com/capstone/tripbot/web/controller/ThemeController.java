@@ -4,15 +4,12 @@ import com.capstone.tripbot.web.model.Theme;
 import com.capstone.tripbot.web.service.SessionService;
 import com.capstone.tripbot.web.service.ThemeService;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
 
 /**
  * @author : Sangji Lee
