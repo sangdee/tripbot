@@ -24,8 +24,40 @@
             window.scrollTo(0, 1);
         }
     </script>
+
+    <style type="text/css">
+        .banner01, .banner02, .banner03 {
+            width: 400px;
+            height: 300px;
+            margin: 10px;
+        }
+
+        .banner01 ul li a, .banner02 ul li a, .banner03 ul li a {
+            display: block;
+            width: 300px;
+            height: 200px;
+            text-shadow: 0 0 2px #666;
+            text-decoration: none;
+            color: #FFF;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: -1px;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        .banner01, .banner01 ul li a {
+            width: 1000px;
+        }
+
+
+    </style>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/simpleBanner.js"></script>
     <!--// Meta tag Keywords -->
 
+    <link rel="stylesheet" href="css/simpleBanner.css">
     <!-- Custom-Files -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- Bootstrap-Core-CSS -->
@@ -143,7 +175,7 @@
 </div>
 <!-- //banner -->
 
-<!-- banner bottom -->
+<!-- main center -->
 <div class="agile-bottom space-w3ls">
     <div class="container">
         <div class="text-center mx-auto">
@@ -161,35 +193,15 @@
     </div>
 </div>
 </div>
-<!-- //banner bottom -->
+<!-- //main center -->
 
-<!-- tab -->
+<!-- main ChatBot-->
 <div class="agile-pay w3layouts-content space-w3ls">
-    <div class="container">
 
-        <!--Horizontal Tab-->
-        <div id="parentHorizontalTab">
-            <ul class="resp-tabs-list hor_1">
-                <li>장소</li>
-                <li>코스</li>
-
-            </ul>
-            <div class="resp-tabs-container hor_1">
-                <div>
-
-                </div>
-
-                <div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
 </div>
 
+<!-- //main ChatBot -->
 
-<!-- //tab -->
 <!-- Js files -->
 <!-- JavaScript -->
 <script src="js/jquery-2.2.3.min.js"></script>
