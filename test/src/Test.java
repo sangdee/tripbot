@@ -8,16 +8,6 @@ import java.util.Date;
  */
 public class Test {
     public static void main(String[] args) {
-        Timestamp register = new Timestamp(System.currentTimeMillis());
-        long stamp = register.getTime();
 
-        System.out.println(encoding(stamp));
-
-    }
-
-    public static String encoding(long chatDate) {
-        Date date = new Date();
-        date.setTime(chatDate);
-        return date.toString();
     }
 }

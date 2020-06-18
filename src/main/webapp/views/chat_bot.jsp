@@ -95,14 +95,25 @@
                 </div>
             </div>
             <c:forEach var="chat" items="${chat}">
-                <div class="d-flex justify-content-end mb-4">
-                    <div class="msg_cotainer_send">
-                            ${chat.chatContent}
-                        <span class="msg_time_send">${chat.chatDate}</span>
-                    </div>
-                </div>
+                <c:choose>
+                    <c:when test="${chat.isUser}==true">
+                        <div class="d-flex justify-content-end mb-4">
+                            <div class="msg_cotainer_send">
+                                    ${chat.chatContent}
+                                <span class="msg_time_send">${chat.chatDate}</span>
+                            </div>
+                        </div>
+                        <c:otherwise>
+                            <div class="msg_cotainer">
+                                    ${chat.chatContent}
+                                <span class="msg_time">${chat.chatDate}</span>
+                            </div>
+                        </c:otherwise>
+                    </c:when>
+                </c:choose>
             </c:forEach>
         </div>
+
     </div>
     <div class="card-footer">
         <div class="input-group">

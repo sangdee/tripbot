@@ -3,8 +3,13 @@ package com.capstone.tripbot.web.service;
 import com.capstone.tripbot.web.model.Chat;
 import com.capstone.tripbot.web.repository.ChatRepository;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import org.jsoup.Jsoup;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +21,7 @@ import java.util.List;
  */
 @Service
 @AllArgsConstructor
+@NoArgsConstructor
 public class ChatService {
     private ChatRepository repository;
 
@@ -36,9 +42,5 @@ public class ChatService {
         Date date = new Date();
         date.setTime(chatDate);
         return date.toString();
-    }
-
-    public void sessionCheck(String session) {
-
     }
 }
