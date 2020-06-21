@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -21,9 +20,9 @@ import java.util.List;
  */
 @Service
 @AllArgsConstructor
-@NoArgsConstructor
 public class ChatService {
     private ChatRepository repository;
+    public static String intent = null;
 
     public void save(Chat chat) {
         repository.save(chat);
@@ -42,5 +41,28 @@ public class ChatService {
         Date date = new Date();
         date.setTime(chatDate);
         return date.toString();
+    }
+
+    public String request(String text) throws IOException {
+        return Jsoup.connect("http://121.186.20.224:9893" +
+                "/request/" + utf8(text))
+                .timeout(600000)
+                .ignoreContentType(true)
+                .execute()
+                .body();
+    }
+
+    public String fillInfro(String intent, String text) throws IOException {
+        return Jsoup.connect("http://121.186.20.224:9893" +
+                "/fill_info/" + utf8(intent) + "/" + utf8(text))
+                .timeout(600000)
+                .ignoreContentType(true)
+                .execute()
+                .body();
+    }
+
+
+    public String utf8(String text) throws UnsupportedEncodingException {
+        return URLEncoder.encode(text, "UTF-8").replace("+", "%20");
     }
 }

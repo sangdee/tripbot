@@ -30,6 +30,8 @@ public class Chat {
 
     @Column(length = 1000, nullable = false)
     private String chatContent;
+    @Column(length = 1000)
+    private String chatSay;
 
     @Column
     private String chatDate;

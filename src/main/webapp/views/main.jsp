@@ -160,7 +160,7 @@
                         <a href="/">챗봇</a>
                     </li>
                     <%
-                        }else {
+                    }else {
                     %>
                     <%
                         session.setAttribute("email", user.getEmail());
@@ -231,10 +231,10 @@
 <script>
     $(function () {
 
-        //	create a menu
+        //   create a menu
         $('#menu').mmenu();
 
-        //	for demo only
+        //   for demo only
         $('a[href^="#/"]').click(function () {
             alert('Thank you for clicking, but that\'s a demo link.');
             return;

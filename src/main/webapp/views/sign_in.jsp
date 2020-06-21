@@ -4,7 +4,7 @@
 <html lang="zxx">
 
 <head>
-    <title>TTravel App TripBot</title>
+    <title>Travel App TripBot</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8"/>

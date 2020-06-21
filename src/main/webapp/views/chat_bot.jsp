@@ -95,25 +95,26 @@
                 </div>
             </div>
             <c:forEach var="chat" items="${chat}">
-                <c:choose>
-                    <c:when test="${chat.isUser}==true">
-                        <div class="d-flex justify-content-end mb-4">
-                            <div class="msg_cotainer_send">
-                                    ${chat.chatContent}
-                                <span class="msg_time_send">${chat.chatDate}</span>
-                            </div>
-                        </div>
-                        <c:otherwise>
-                            <div class="msg_cotainer">
-                                    ${chat.chatContent}
-                                <span class="msg_time">${chat.chatDate}</span>
-                            </div>
-                        </c:otherwise>
-                    </c:when>
-                </c:choose>
+                <div class="d-flex justify-content-end mb-4">
+                    <div class="msg_cotainer_send">
+                            ${chat.chatContent}
+                        <span class="msg_time_send">${chat.chatDate}</span>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                        <img src="views/images/bot.jpg"
+                             class="rounded-circle user_img_msg">
+                    </div>
+                    <div class="msg_cotainer">
+                            ${chat.chatSay}
+                        <span class="msg_time"></span>
+                    </div>
+                </div>
             </c:forEach>
-        </div>
 
+
+             </div>
     </div>
     <div class="card-footer">
         <div class="input-group">
@@ -152,10 +153,10 @@
 <script>
     $(function () {
 
-        //	create a menu
+        //   create a menu
         $('#menu').mmenu();
 
-        //	for demo only
+        //   for demo only
         $('a[href^="#/"]').click(function () {
             alert('Thank you for clicking, but that\'s a demo link.');
             return;

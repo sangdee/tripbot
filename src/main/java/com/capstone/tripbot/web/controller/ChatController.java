@@ -1,16 +1,17 @@
 package com.capstone.tripbot.web.controller;
 
 import com.capstone.tripbot.web.model.Chat;
-import com.capstone.tripbot.web.scenario.ScenarioStore;
+import com.capstone.tripbot.web.model.User;
 import com.capstone.tripbot.web.service.ChatService;
-import com.capstone.tripbot.web.service.ScenarioService;
 import com.capstone.tripbot.web.service.SessionService;
 import lombok.AllArgsConstructor;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,32 +24,69 @@ import java.util.List;
 public class ChatController {
     private ChatService chatService;
     private SessionService sessionService;
-    private ScenarioService scenarioService;
-    private static int CURRENT_STATE = 1;
 
-    // 0 : 비정상
-    // 1 : 정상
     @RequestMapping("/chat_content.do")
-    public String chatContent(Chat chat, Model model) throws IOException {
+    public String chatContent(Chat chat, Model model) {
         chat.setChatDate(chatService.encoding(Long.parseLong(chat.getChatDate())));
         chatService.save(chat);
-        List<Chat> chatInfo = chatService.showChat(chat.getEmail());
-        model.addAttribute("chat", chatInfo);
-        String chatContent = chat.getChatContent();
 
-        if (CURRENT_STATE == 0) {
-            // 이전 상황에 실패
-            CURRENT_STATE = scenarioService.failScenario(chatContent);
+        if (chatService.intent != null) {
+            try {
+                String userInput = chat.getChatContent();
+                String output = chatService.fillInfro(ChatService.intent, userInput);
+                JSONObject jsonObject = new JSONObject(output);
+                String state = jsonObject.getString("state");
 
-        } else if (CURRENT_STATE == 1) {
-            // 이전 상황에 성공
-            CURRENT_STATE = scenarioService.successScenario(chatContent);
+                if (state.equals("SUCCESS")) {
+                    String out = jsonObject.getString("answer");
+                    ChatService.intent = null;
+                    chat.setChatSay(out);
+                    chatService.save(chat);
+                } else if (state.equals("FALLBACK")) {
+                    String out = "죄송합니다. 잘 못알아들었어요";
+                    ChatService.intent = null;
+                    chat.setChatSay(out);
+                    chatService.save(chat);
+                } else {
+                    String out = "지역을 말씀해주세요";
+                    ChatService.intent = jsonObject.getString("intent");
+                    chat.setChatSay(out);
+                    chatService.save(chat);
+                }
+            } catch (Exception e) {
+            }
+        } else {
+            try {
+                String userInput = chat.getChatContent();
+                String output = chatService.request(userInput);
+                JSONObject jsonObject = new JSONObject(output);
+                String state = jsonObject.getString("state");
 
-        }else{
-            throw new IllegalStateException("illegal state");
+                if (state.equals("SUCCESS")) {
+                    String out = jsonObject.getString("answer");
+
+                    chat.setChatSay(out);
+                    chatService.save(chat);
+
+                } else if (state.equals("FALLBACK")) {
+                    String out = "죄송합니다. 잘 못알아들었어요";
+
+                    chat.setChatSay(out);
+                    chatService.save(chat);
+                } else {
+                    String out = "지역을 말씀해주세요";
+                    ChatService.intent = jsonObject.getString("intent");
+                    chat.setChatSay(out);
+                    chatService.save(chat);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        model.addAttribute("answer",ScenarioStore.answer);
-        // 모델로 ScenarioStore.answer 보내서 멘트침
+
+        List<Chat> chatInfo = chatService.showChat(chat.getEmail());
+
+        model.addAttribute("chat", chatInfo);
         return "views/chat_bot";
     }
 
@@ -56,6 +94,7 @@ public class ChatController {
     public String chatList(Model model) {
         String email = (String) sessionService.read("email");
         List<Chat> chatInfo = chatService.showChat(email);
+
         model.addAttribute("chat", chatInfo);
         return "views/chat_bot";
     }
