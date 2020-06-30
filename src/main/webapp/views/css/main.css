@@ -1,12 +1,3 @@
-/*--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
-
-/*-- Reset Code --*/
-
 body {
     padding: 0;
     margin: 0;
@@ -130,7 +121,7 @@ a:hover {
 .modal-title {
     font-size: 32px;
     text-align: center;
-    color: #7f99fb;
+    color: gray;
 }
 
 label.col-form-label {
@@ -170,8 +161,8 @@ label.col-form-label {
 }
 
 .btn-secondary {
-    background-color: #585858;
-    border-color: #585858;
+    background-color: gray;
+    border-color: gray;
 }
 
 .logo h1 a img {
@@ -188,7 +179,7 @@ label.col-form-label {
     cursor: pointer;
     letter-spacing: 1px;
     padding: 9px 0;
-    background: #f77777;
+    background: black;
     border: none;
     color: #fff;
     margin: 2vw 0 1.5vw;
@@ -1867,7 +1858,7 @@ ul.top-links li a span:hover {
     }
     h3.tittle {
         font-size: 34px;
-        margin-bottom: 40px;
+
     }
     h3.tittle span {
         font-size: 52px;
@@ -2446,8 +2437,8 @@ ul.top-links li a span:hover {
         font-size: 24px;
     }
     h3.tittle {
-        font-size: 30px;
-        margin-bottom: 30px;
+        font-size: 10px;
+        margin-bottom: 0px;
     }
     label.col-form-label {
         font-size: 14px;
@@ -2621,7 +2612,7 @@ ul.top-links li a span:hover {
     }
     h3.tittle {
         font-size: 26px;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
     }
     h3.tittle span {
         font-size: 40px;

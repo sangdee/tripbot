@@ -1,0 +1,222 @@
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+
+/*-- Reset Code --*/
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body a {
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    text-decoration: none;
+}
+
+body a:hover {
+    text-decoration: none;
+}
+
+body a:focus,
+a:hover {
+    text-decoration: none;
+}
+
+input[type="button"],
+input[type="submit"] {
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Asap', sans-serif;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    line-height: 1.9;
+    color: #999;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+label {
+    margin: 0;
+}
+
+a:focus,
+a:hover {
+    text-decoration: none;
+    outline: none
+}
+
+/*-- //Reset Code --*/
+
+/*-- header --*/
+
+.header-top {
+    background: #f77777;
+    padding: 6px 0;
+}
+
+/*-- social-icons --*/
+
+.w3social-icons ul li {
+    display: inline-block;
+}
+
+.w3social-icons ul li a {
+    color: #fff;
+    font-size: 14px;
+    display: block;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 1px 0px #fff;
+    -moz-box-shadow: 0px 0px 1px 0px #fff;
+    box-shadow: 0px 0px 1px 0px #fff;
+    width: 35px;
+    height: 36px;
+    text-align: center;
+    line-height: 2.7;
+}
+
+.w3social-icons ul li a:hover {
+    color: #3f76f1;
+    -webkit-box-shadow: 0px 0px 13px 2px #3f76f1;
+    -moz-box-shadow: 0px 0px 13px 2px #3f76f1;
+    box-shadow: 0px 0px 13px 2px #3f76f1;
+}
+
+/*-- //social-icons --*/
+
+/*-- modal --*/
+
+.login-head a {
+    color: #fff;
+    font-size: 28px;
+}
+
+.modal-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: gray;
+    text-align: center;
+    line-height: 0.75;
+}
+
+
+
+label.col-form-label {
+    letter-spacing: 1px;
+    font-size: 15px;
+    color: #000;
+}
+
+.modal-footer .btn-primary,
+.modal-footer .btn-secondary {
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 10px 14px;
+}
+
+.modal-footer .btn-primary {
+    background-color: #0e0e0e;
+    border-color: #0e0e0e;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+.modal-footer .btn-primary:hover {
+    opacity: .8;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+.modal-dialog.modal-dialog2 {
+    max-width: 800px;
+}
+
+.btn-secondary {
+    background-color: #868e96;
+    border-color: #868e96;
+}
+
+.logo h1 a img {
+    -webkit-animation: fa-spin 5s infinite linear;
+    -moz-animation: fa-spin 5s infinite linear;
+    -ms-animation: fa-spin 5s infinite linear;
+    -o-animation: fa-spin 5s infinite linear;
+    animation: fa-spin 5s infinite linear;
+}
+
+.right-w3l input[type="submit"] {
+    outline: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+    padding: 9px 0;
+    background: black;
+    border: none;
+    color: #fff;
+    margin: 2vw 0 1.5vw;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+<!-- 로그인창 회원가입 버튼 서식 -->
+.forgot-w3l a {
+    font-size: 15px;
+    color: #000;
+    letter-spacing: 1px;
+}
+
+p.dont-do {
+    margin: 1vw 0;
+}
+
+p.dont-do a {
+    color: black;
+}
+
+<!-- 로그인창 회원가입 버튼 서식 -->

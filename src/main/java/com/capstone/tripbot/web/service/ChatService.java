@@ -3,7 +3,6 @@ package com.capstone.tripbot.web.service;
 import com.capstone.tripbot.web.model.Chat;
 import com.capstone.tripbot.web.repository.ChatRepository;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.jsoup.Jsoup;
 import org.springframework.stereotype.Service;
 

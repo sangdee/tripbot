@@ -1,321 +1,293 @@
 <%@ page import="com.capstone.tripbot.web.model.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <!DOCTYPE html>
-
-<html lang="zxx">
+<html lang="en">
 <%!
     User user;
 %>
-
 <head>
-    <title>Travel App TripBot</title>
-    <!-- Meta tag Keywords -->
+    <title>TripBot</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Travello template project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8"/>
-    <meta name="keywords"
-          content="Travel App Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
-    />
-    <script>
-        addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
-
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-
-    <style type="text/css">
-        .banner01, .banner02, .banner03 {
-            width: 400px;
-            height: 300px;
-            margin: 10px;
-        }
-
-        .banner01 ul li a, .banner02 ul li a, .banner03 ul li a {
-            display: block;
-            width: 300px;
-            height: 200px;
-            text-shadow: 0 0 2px #666;
-            text-decoration: none;
-            color: #FFF;
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: -1px;
-            text-align: center;
-            line-height: 200px;
-        }
-
-        .banner01, .banner01 ul li a {
-            width: 1000px;
-        }
-
-
-    </style>
-
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/simpleBanner.js"></script>
-    <!--// Meta tag Keywords -->
-
-    <link rel="stylesheet" href="css/simpleBanner.css">
-    <!-- Custom-Files -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <!-- Bootstrap-Core-CSS -->
-    <link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css">
-    <!-- menu -->
-    <link rel="stylesheet" href="css/main.css" type="text/css" media="all"/>
-    <!-- Style-CSS -->
-    <link href="css/fontawesome-all.css" rel="stylesheet">
-    <!-- Font-Awesome-Icons-CSS -->
-    <!-- //Custom-Files -->
-
-    <!-- Web-Fonts -->
-    <link href="//fonts.googleapis.com/css?family=Asap:400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
-          rel="stylesheet">
-    <!-- //Web-Fonts -->
-
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+    <link rel="stylesheet" type="text/css" href="styles2/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="styles2/responsive.css">
 </head>
-
 <body>
-<!-- header top -->
-<div class="header-top">
-    <div class="container">
-        <div class="row">
-            <div class="col login-head text-right">
+
+<div class="super_container">
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                        <div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
+                            <div class="logo"><a href="/views/main.jsp">TripBot</a></div>
+
+                            <!-- hidden -->
+                            <nav class="main_nav">
+                                <ul class="d-flex flex-row align-items-start justify-content-start">
+                                    <li class="active"><a href="/views/main.jsp">메인 화면</a></li>
+                                    <li><a href="/course_list">게시판</a></li>
+                                    <li><a href="/theme_list.do">테마</a></li>
+                                    <%
+                                        user = (User) session.getAttribute("user");
+                                        if (user == null || user.equals("")) {
+                                    %>
+                                    <li><a href="/views/sign_in.jsp" onclick="alert('로그인이 필요한 서비스입니다.');">챗봇</a></li>
+                                    <li><a href="/views/sign_in.jsp" onclick="alert('로그인이 필요한 서비스입니다.');">여행일지</a></li>
+                                    <li><a href="/views/sign_in.jsp" onclick="alert('로그인이 필요한 서비스입니다.');">마이 페이지</a></li>
+                                    <%}else{%>
+                                    <%--챗봇 링크 달기--%>
+                                    <li><a href="/chat_list.do">챗봇</a></li>
+                                    <li><a href="/course_note">여행일지</a></li>
+                                    <li><a href="/views/my_page.jsp">마이 페이지</a></li>
+                                    <%}%>
+                                </ul>
+                            </nav>
+                            <!-- //hidden -->
+
+                            <!-- log in,  display: none; 제거해야함-->
+                            <%
+                                if (user == null || user.equals("")) {
+                            %>
+                                <div class="hamburger ml-auto">
+                                    <a href="/views/sign_in.jsp">
+                                        <div><button class="newsletter_button">로그인</button></div>
+                                    </a>
+                                </div>
+                                <div class="hamburger">
+                                    <!-- register-->
+                                    <a href="/views/sign_up.jsp">
+                                        <div><button class="newsletter_button">회원가입</button></div>
+                                    </a>
+                                </div>
+                            <%
+                            } else {
+                            %>
+                                <div class="hamburger ml-auto">
+                                    <a style="font-size: small">
+                                        <%=user.getName()%>님 안녕하세요
+                                    </a>
+                                </div>
+                                <div class="hamburger">
+                                    <a>
+                                        <a href="/logout">
+                                            <button type="button" class="newsletter_button">로그아웃</button>
+                                        </a>
+                                    </a>
+                                </div>
+                            <%
+                                }
+                            %>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header2, bootstrap.css에 row2 속성 추가함-->
+            <div class="row2">
+                <hr>
+                <div class="hamburger my-auto">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+                <br>
+            </div>
+            <!-- //Header2 -->
+        </div>
+        <div class="header_social d-flex flex-row align-items-center justify-content-start">
+
+        </div>
+    </header>
+
+    <!-- Menu -->
+    <div class="menu">
+        <div class="menu_header d-flex flex-row align-items-center justify-content-start">
+            <div class="menu_logo"><a href="main.jsp">TripBot</a></div>
+            <div class="menu_close_container ml-auto"><div class="menu_close"><div></div><div></div></div></div>
+        </div>
+        <div class="menu_content">
+            <ul>
+                <li class="active"><a href="main.jsp">메인 화면</a></li><hr style="border:solid 1px gray">
+                <li><a href="/course_list">게시판</a></li><hr style="border:solid 1px gray">
+                <li><a href="/theme_list.do">테마</a></li><hr style="border:solid 1px gray">
                 <%
                     user = (User) session.getAttribute("user");
                     if (user == null || user.equals("")) {
                 %>
-                <a href="sign_in.jsp">
-                    <button type="button" class="btn btn-secondary">로그인</button>
-                </a>
-                <a href="sign_up.jsp">
-                    <button type="button" class="btn btn-secondary">회원가입</button>
-                </a>
-                <%
-                } else {
-                %>
-                <a style="font-size: small">
-                    <%=user.getName()%>님 안녕하세요
-                </a>
-                <a>
-                    <a href="/logout">
-                        <button type="button" class="btn btn-secondary">로그아웃</button>
-                    </a>
-                </a>
-                <%
-                    }
-                %>
+                <li><a href="sign_in.jsp" onclick="alert('로그인이 필요한 서비스입니다.');">챗봇</a></li><hr style="border:solid 1px gray">
+                <li><a href="sign_in.jsp" onclick="alert('로그인이 필요한 서비스입니다.');">여행일지</a></li><hr style="border:solid 1px gray">
+                <li><a href="sign_in.jsp" onclick="alert('로그인이 필요한 서비스입니다.');">마이 페이지</a></li><hr style="border:solid 1px gray">
+                <%}else{%>
+                <%--챗봇 링크 달기--%>
+                <li><a href="/chat_list.do">챗봇</a></li><hr style="border:solid 1px gray">
+                <li><a href="/course_note">여행일지</a></li><hr style="border:solid 1px gray">
+                <li><a href="my_page.jsp">마이 페이지</a></li><hr style="border:solid 1px gray">
+                <%}%>
+            </ul>
+        </div>
+        <div class="menu_social">
+            <div class="menu_phone ml-auto">고객 문의: 010-1234-5678</div>
+        </div>
+    </div>
+
+    <!-- Home -->
+    <div class="home">
+
+        <!-- Home Slider -->
+        <div class="home_slider_container">
+            <div class="owl-carousel owl-theme home_slider">
+
+                <!-- Slide -->
+                <div class="owl-item">
+                    <div class="background_image" style="background-image:url(images/mainimage.jpg)"></div>
+                    <div class="home_slider_content_container">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="home_slider_content">
+                                        <div class="home_title"><h2>TripBot에</h2><h2>어서오세요</h2><h2>환영합니다!</h2></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide -->
+                <div class="owl-item">
+                    <div class="background_image" style="background-image:url(images/home_slider.jpg)"></div>
+                    <div class="home_slider_content_container">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="home_slider_content">
+                                        <div class="home_title"><h2>Let us take you away</h2></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide -->
+                <div class="owl-item">
+                    <div class="background_image" style="background-image:url(images/home_slider.jpg)"></div>
+                    <div class="home_slider_content_container">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="home_slider_content">
+                                        <div class="home_title"><h2>Let us take you away</h2></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-</div>
-<!-- //header top -->
 
-<!-- banner -->
-<div class="banner-w3l">
-    <div class="container">
-        <div id="page">
-            <div class="mh-head Sticky">
-                <div class="row">
-                    <div class="col mh-btns-left">
-                        <a class="fa fa-bars" href="#menu"></a>
-                    </div>
-                    <div class="col-8 logo">
-                        <h1>
-                            <a href="/">TripBot</a>
-                        </h1>
+    <!-- Destinations -->
+    <div class="destinations" id="destinations">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <div class="section_subtitle">Trip Bot을 통해</div>
+                    <div class="section_title"><h2>자신만의 여행을</h2><h2>계획해보세요.</h2></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/footer_1.jpg" data-speed="0.8"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="newsletter">
+                        <div class="newsletter_title_container text-center">
+                            <div class="newsletter_subtitle">Trip Bot은 당신과의 소통을 소중히합니다.</div>
+                        </div>
+
                     </div>
                 </div>
             </div>
+            <div class="row footer_contact_row">
+                <div class="col-xl-10 offset-xl-1">
+                    <div class="row">
 
-            <!-- navigation -->
-            <nav id="menu">
-                <ul>
-                    <li>
-                        <a class="active" href="/">메인화면</a>
-                    </li>
-                    <%
-                        if (user == null || user.equals("")) {
-                    %>
-                    <li>
-                        <a href="sign_in.jsp">마이페이지</a>
-                    </li>
-                    <%
-                    } else {
-                    %>
-                    <li>
-                        <a href="my_page.jsp">마이페이지</a>
-                    </li>
-                    <%
-                        }
-                    %>
-                    <%
-                        user = (User) session.getAttribute("user");
-                        if (user == null || user.equals("")) {
-                    %>
-                    <li>
-                        <a href="/">챗봇</a>
-                    </li>
-                    <%
-                    }else {
-                    %>
-                    <%
-                        session.setAttribute("email", user.getEmail());
-                    %>
-                    <li>
-                        <a href="/chat_list.do">챗봇</a>
-                    </li>
-                    <%
-                        }
-                    %>
-                    <li>
-                        <a href="add_note.jsp">여행일지</a>
-                    </li>
-                </ul>
-            </nav>
-            <!-- //navigation -->
-        </div>
-        <!-- banner text -->
-        <div class="banner-text text-center mx-auto">
-            <p>
-                <span>어서오세요!</span>
-            </p>
-            <h3>당신의 여행계획을 도와줄
-                <span>TripBot</span>
-            </h3>
-        </div>
-        <!-- //banner text -->
-    </div>
-</div>
-<!-- //banner -->
+                        <!-- Footer Contact Item -->
+                        <div class="col-xl-4 footer_contact_col">
+                            <div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
+                                <div class="footer_contact_icon"><img src="images/sign.svg" alt=""></div>
+                                <div class="footer_contact_title">고객 상담</div>
+                                <div class="footer_contact_list">
+                                    <ul>
+                                        <li>Office Landline: 000-0000-0000</li>
+                                        <li>Mobile: 000-0000-0000</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
 
-<!-- main center -->
-<div class="agile-bottom space-w3ls">
-    <div class="container">
-        <div class="text-center mx-auto">
+                        <!-- Footer Contact Item -->
+                        <div class="col-xl-4 footer_contact_col">
+                            <div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
+                                <div class="footer_contact_icon"><img src="images/trekking.svg" alt=""></div>
+                                <div class="footer_contact_title">공지사항</div>
+                                <div class="footer_contact_list">
+                                    <ul style="max-width:190px">
+                                        <li>비고</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
 
-            <form>
-                <fieldset></fieldset>
-            </form>
-        </div>
-        <div class="text-center mx-auto">
-            <a href="/theme_list.do" class="button2-w3l">테마
-                <i class="far fa-hand-point-right"></i>
-            </a>
+                        <!-- Footer Contact Item -->
+                        <div class="col-xl-4 footer_contact_col">
+                            <div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
+                                <div class="footer_contact_icon"><img src="images/around.svg" alt=""></div>
+                                <div class="footer_contact_title">제작 담당</div>
+                                <div class="footer_contact_list">
+                                    <ul>
+                                        <li>따라와</li>
+                                        <li>Email@gmail.com</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
 
-    </div>
-</div>
-</div>
-<!-- //main center -->
 
-<!-- main ChatBot-->
-<div class="agile-pay w3layouts-content space-w3ls">
-
+    </footer>
+    <!-- //Footer -->
 </div>
 
-<!-- //main ChatBot -->
-
-<!-- Js files -->
-<!-- JavaScript -->
-<script src="js/jquery-2.2.3.min.js"></script>
-<!-- Default-JavaScript-File -->
-<script src="js/bootstrap.js"></script>
-<!-- Necessary-JavaScript-File-For-Bootstrap -->
-
-<!-- menu -->
-<script src="js/jquery.mmenu.all.js"></script>
-<script>
-    $(function () {
-
-        //   create a menu
-        $('#menu').mmenu();
-
-        //   for demo only
-        $('a[href^="#/"]').click(function () {
-            alert('Thank you for clicking, but that\'s a demo link.');
-            return;
-        })
-    });
-</script>
-<!-- //menu -->
-
-<!-- scrolling plugins -->
-<script src="js/jquery.nicescroll.min.js"></script>
-<script src="js/scripts.js"></script>
-<!-- //scrolling plugins -->
-
-<!-- smooth scrolling -->
-<script src="js/SmoothScroll.min.js"></script>
-<!-- //smooth scrolling -->
-
-<!-- start-smoth-scrolling -->
-<script src="js/move-top.js"></script>
-<script src="js/easing.js"></script>
-<script>
-    jQuery(document).ready(function ($) {
-        $(".scroll").click(function (event) {
-            event.preventDefault();
-            $('html,body').animate({
-                scrollTop: $(this.hash).offset().top
-            }, 1000);
-        });
-    });
-</script>
-
-<!-- easy-responsive-tabs -->
-<link rel="stylesheet" type="text/css" href="css/easy-responsive-tabs.css "/>
-<script src="js/easyResponsiveTabs.js"></script>
-<!-- //easy-responsive-tabs -->
-<!-- Plug-in Initialisation (tabs) -->
-<script type="text/javascript">
-    $(document).ready(function () {
-        //Horizontal Tab
-        $('#parentHorizontalTab').easyResponsiveTabs({
-            type: 'default', //Types: default, vertical, accordion
-            width: 'auto', //auto or any width like 600px
-            fit: true, // 100% fit in a container
-            tabidentify: 'hor_1', // The tab groups identifier
-            activate: function (event) { // Callback function if tab is switched
-                var $tab = $(this);
-                var $info = $('#nested-tabInfo');
-                var $name = $('span', $info);
-                $name.text($tab.text());
-                $info.show();
-            }
-        });
-    });
-</script>
-<!-- //Plug-in Initialisation (tabs) -->
-
-<!-- start-smoth-scrolling -->
-
-<!-- smooth scrolling-bottom-to-top -->
-<script>
-    $(document).ready(function () {
-        /*
-            var defaults = {
-            containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
-            scrollSpeed: 1200,
-            easingType: 'linear'
-            };
-        */
-        $().UItoTop({
-            easingType: 'easeOutQuart'
-        });
-    });
-</script>
-<a href="#" id="toTop" style="display: block;">
-    <span id="toTopHover" style="opacity: 1;"> </span>
-</a>
-<!-- //smooth scrolling-bottom-to-top -->
-<!-- //Js files -->
-
-
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="styles2/bootstrap4/popper.js"></script>
+<script src="styles2/bootstrap4/bootstrap.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="plugins/scrollTo/jquery.scrollTo.min.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="js/custom.js"></script>
 </body>
-
 </html>

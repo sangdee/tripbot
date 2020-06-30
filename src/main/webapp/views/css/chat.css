@@ -13,7 +13,7 @@ body,html{
 .card{
     height: 500px;
     border-radius: 15px !important;
-    background-color: rgba(0,0,0,0.4) !important;
+    background-color: rgba(63, 149, 224, 0.79) !important;
 }
 .contacts_body{
     padding:  0.75rem 0 !important;
@@ -150,16 +150,17 @@ body,html{
     margin-bottom: auto;
     margin-left: 10px;
     border-radius: 25px;
-    background-color: #82ccdd;
+    background-color: white;
     padding: 10px;
     position: relative;
+    word-break: break-all;
 }
 .msg_cotainer_send{
     margin-top: auto;
     margin-bottom: auto;
     margin-right: 10px;
     border-radius: 25px;
-    background-color: #78e08f;
+    background-color: yellow;
     padding: 10px;
     position: relative;
 }

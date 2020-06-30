@@ -1,7 +1,6 @@
 package com.capstone.tripbot.web.controller;
 
 import com.capstone.tripbot.web.model.Chat;
-import com.capstone.tripbot.web.model.User;
 import com.capstone.tripbot.web.service.ChatService;
 import com.capstone.tripbot.web.service.SessionService;
 import lombok.AllArgsConstructor;
@@ -11,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
